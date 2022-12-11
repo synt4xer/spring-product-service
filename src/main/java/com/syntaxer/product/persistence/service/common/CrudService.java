@@ -38,8 +38,8 @@ public abstract class CrudService<T extends Serializable> implements Operations<
     }
 
     @Override
-    public T update(T entity) {
-        return getRepository().save(entity);
+    public void update(T entity) {
+        getRepository().save(entity);
     }
 
     @Override
