@@ -26,6 +26,17 @@ public class ProductServiceImpl extends CrudService<Product> implements ProductS
     }
 
     @Override
+    public void updateStocksById(Long id, int stocks) {
+        Product product = getRepository().findById(id).orElse(null);
+
+        if (product != null) {
+            int productStocks = product.getStocks() + stocks;
+
+            this.productRepository.updateStocks(id, productStocks);
+        }
+    }
+
+    @Override
     protected JpaRepository<Product, Long> getRepository() {
         return this.productRepository;
     }
