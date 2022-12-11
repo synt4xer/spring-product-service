@@ -29,9 +29,9 @@ public class ProductServiceImpl extends CrudService<Product> implements ProductS
     public void updateStocksById(Long id, int stocks) {
         Product product = getRepository().findById(id).orElse(null);
 
-        if (product != null && product.getStocks() != 0) {
+        if (product != null) {
             int productStocks = product.getStocks() + stocks;
-            product.setStocks(productStocks);
+
             this.productRepository.updateStocks(id, productStocks);
         }
     }
