@@ -7,4 +7,6 @@ import org.springframework.data.domain.Pageable;
 
 public interface ProductService extends Operations<Product> {
     Page<Product> findPaginated(Pageable pageable);
+
+    void updateStocksById(Long id, int stocks);
 }
